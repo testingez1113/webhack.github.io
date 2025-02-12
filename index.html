@@ -1,148 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeamCK Vip WebHack</title>
+    <title>Wingo Webhack</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
         }
 
-        /* Header */
-        .header {
-            background-color: #d60000;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1c1c1c; /* Darker background */
+            overflow: hidden;
             color: white;
-            padding: 20px;
-            font-size: 30px; /* Increased font size */
-            font-weight: bold;
-            border-radius: 5px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            word-wrap: break-word; /* Ensure text doesn't overflow */
-            width: 100%; /* Ensure header takes full width */
-            box-sizing: border-box; /* Include padding in width calculation */
         }
 
-        /* Main Container */
         .container {
-            width: 90%; /* Full width with 10% margin */
-            max-width: 100%; /* Ensure it does not exceed screen width */
-            background: white;
+            width: 90%;
+            max-width: 900px;
+            background: #2a2a2a; /* Lighter dark gray */
             margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            box-sizing: border-box; /* Ensure padding is included in width calculation */
+            border-radius: 12px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            box-sizing: border-box;
+            animation: fadeIn 2s ease-out;
         }
 
-        /* Box Styling */
-        .box {
-            background: #ffecec;
+        .header {
+            background-color: #222; /* Slightly darker for header */
+            color: #90caf9;
             padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .box {
+            background: #333; /* Light gray background for box */
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-out;
         }
 
         .title {
-            font-size: 22px; /* Increased font size */
-            font-weight: bold;
-            color: #333;
+            font-size: 20px;
+            font-weight: 500;
+            color: #81d4fa; /* Light blue title */
+            margin-bottom: 10px;
         }
 
         .value {
-            font-size: 26px; /* Increased font size */
-            font-weight: bold;
-            color: #555;
+            font-size: 24px;
+            font-weight: 600;
+            color: #e0e0e0; /* Soft light gray value */
         }
 
-        /* Timer */
-        .timer {
-            color: red;
-            font-size: 30px; /* Increased font size */
-            font-weight: bold;
-        }
-
-        /* Button */
         button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #d60000;
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #2e7d32; /* Green button */
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 25px;
         }
 
         button:hover {
-            background-color: #a10000;
+            background-color: #388e3c; /* Lighter green on hover */
         }
 
         button:active {
             transform: scale(0.95);
         }
 
-        /* Table */
         .table {
-            width: 100%; /* Ensure table takes full width */
+            width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            table-layout: fixed; /* Prevent horizontal scrolling */
         }
 
         .table th {
-            background: #d60000;
+            background: #444; /* Darker header background */
             color: white;
             padding: 12px;
             text-align: center;
-            border-radius: 5px 5px 0 0;
-            word-wrap: break-word; /* Prevent text overflow */
+            border-radius: 8px;
         }
 
         .table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            border-bottom: 1px solid #555;
             text-align: center;
             font-size: 18px;
-            word-wrap: break-word; /* Prevent text overflow */
         }
 
         .table tr:nth-child(even) {
-            background: #f2f2f2;
+            background: #555; /* Alternate row color */
         }
 
         .table tr:last-child td {
             border-bottom: none;
         }
 
-        /* Color indicators */
-        .small {
-            color: #F44336; /* Small result color */
-            font-weight: bold; /* Bold text for small */
-        }
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
 
-        .big {
-            color: #4CAF50; /* Big result color */
-            font-weight: bold; /* Bold text for big */
+            to {
+                opacity: 1;
+            }
         }
 
         /* Mobile Responsiveness */
         @media screen and (max-width: 768px) {
             .header {
-                font-size: 24px; /* Slightly smaller for tablets */
+                font-size: 24px;
                 padding: 15px;
             }
 
             .container {
-                width: 95%; /* Full width with slight margin */
+                width: 95%;
                 padding: 15px;
             }
 
@@ -154,10 +151,6 @@
                 font-size: 22px;
             }
 
-            .timer {
-                font-size: 26px;
-            }
-
             .table th,
             .table td {
                 font-size: 16px;
@@ -165,15 +158,14 @@
             }
         }
 
-        /* Extra Small Mobile Screens */
         @media screen and (max-width: 480px) {
             .header {
-                font-size: 22px; /* Slightly smaller for very small screens */
+                font-size: 20px;
                 padding: 12px;
             }
 
             .container {
-                width: 100%; /* Full width on small screens */
+                width: 100%;
                 padding: 12px;
             }
 
@@ -182,11 +174,7 @@
             }
 
             .value {
-                font-size: 20px;
-            }
-
-            .timer {
-                font-size: 24px;
+                font-size: 18px;
             }
 
             .table th,
@@ -197,131 +185,63 @@
         }
     </style>
 </head>
+
 <body>
-
-    <!-- Header Section -->
-    <div class="header">
-        TeamCK Vip WebHack
-    </div>
-
-    <!-- Main Container -->
     <div class="container">
-        <!-- Period Box -->
-        <div class="box">
-            <div class="title">Period Number</div>
-            <div class="value" id="periodNumber">Loading...</div>
+        <div class="header">
+            Wingo Webhack
         </div>
 
-        <!-- Result Box -->
         <div class="box">
             <div class="title">Result</div>
             <div class="value" id="result">Loading...</div>
         </div>
 
-        <!-- Timer Box -->
-        <div class="box">
-            <div class="title">Time Remaining</div>
-            <div class="timer" id="timerDisplay">00 : 00</div>
-            <!-- Button added below the timer -->
-            <button id="actionButton" onclick="window.location.href='https://t.me/CKWinGg1330'">Tlg @CKWinGg1330</button>
-        </div>
+        <button onclick="window.location.reload()">Refresh Page</button>
 
-        <!-- History Table -->
         <table class="table">
             <thead>
                 <tr>
-                    <th>Period Number</th>
                     <th>Result</th>
                 </tr>
             </thead>
             <tbody id="historyBody">
-                <!-- Dynamic rows will be added here by JavaScript -->
             </tbody>
         </table>
     </div>
 
     <script>
-        const historySet = new Set(); // To prevent duplicate entries
+        const historySet = new Set();
         const historyBody = document.getElementById('historyBody');
-        const periodNumberElement = document.getElementById('periodNumber');
         const resultElement = document.getElementById('result');
-        const timerDisplayElement = document.getElementById('timerDisplay');
-
-        let previousPeriodNumber = null;
 
         function generateRandomResults() {
-            return Array.from({ length: 8763 }, () => Math.floor(Math.random() * 10));
+            return Array.from({ length: 8888 }, () => Math.floor(Math.random() * 10));
         }
 
-        function updatePeriodAndTimer() {
-            const now = new Date();
-            const seconds = now.getUTCSeconds();
-            const remainingSeconds = 60 - seconds;
-            const minutes = now.getUTCMinutes();
-            const totalMinutes = now.getUTCHours() * 60 + minutes;
+        function updateResult() {
+            const RESULTS = generateRandomResults();
+            const bigCount = RESULTS.filter(num => num >= 5).length;
+            const smallCount = RESULTS.filter(num => num <= 4).length;
+            const totalResults = bigCount + smallCount;
+            const isBigMore = bigCount > smallCount;
+            const currentResult = isBigMore ? `Big (${((bigCount / totalResults) * 100).toFixed(2)}%)` : `Small (${((smallCount / totalResults) * 100).toFixed(2)}%)`;
 
-            // Update period number
-            const periodNumber = `${now.getUTCFullYear()}${(now.getUTCMonth() + 1).toString().padStart(2, '0')}${now.getUTCDate().toString().padStart(2, '0')}1000${10001 + totalMinutes}`;
-            periodNumberElement.textContent = periodNumber;
+            resultElement.textContent = currentResult;
 
-            // Update timer display
-            const formattedTime = `00 : ${remainingSeconds.toString().padStart(2, '0')}`;
-            timerDisplayElement.textContent = formattedTime;
-
-            // Check if the period number has changed
-            if (periodNumber !== previousPeriodNumber) {
-                previousPeriodNumber = periodNumber;
-
-                // Generate new random results
-                const RESULTS = generateRandomResults();
-
-                // Calculate occurrences of big and small from the RESULTS array
-                const bigCount = RESULTS.filter(num => num >= 5).length; // Count "big" (5-9)
-                const smallCount = RESULTS.filter(num => num <= 4).length; // Count "small" (0-4)
-
-                // Determine the result
-                const totalResults = bigCount + smallCount;
-                const isBigMore = bigCount > smallCount;
-                const currentResult = isBigMore ? `Big (${((bigCount / totalResults) * 100).toFixed(2)}%)` : `Small (${((smallCount / totalResults) * 100).toFixed(2)}%)`;
-
-                // Update result display
-                resultElement.textContent = currentResult;
-
-                // Add to history if not already present
-                if (!historySet.has(periodNumber)) {
-                    historySet.add(periodNumber);
-
-                    // Append to history table
-                    const row = document.createElement('tr');
-                    const periodCell = document.createElement('td');
-                    const resultCell = document.createElement('td');
-
-                    periodCell.textContent = periodNumber;
-                    resultCell.textContent = currentResult; // Use currentResult for consistency
-
-                    // Set color based on result
-                    if (isBigMore) {
-                        resultCell.classList.add('big');
-                    } else {
-                        resultCell.classList.add('small');
-                    }
-
-                    // Make text bold
-                    periodCell.style.fontWeight = 'bold';
-                    resultCell.style.fontWeight = 'bold';
-
-                    row.appendChild(periodCell);
-                    row.appendChild(resultCell);
-                    historyBody.appendChild(row);
-                }
+            if (!historySet.has(currentResult)) {
+                historySet.add(currentResult);
+                const row = document.createElement('tr');
+                const resultCell = document.createElement('td');
+                resultCell.textContent = currentResult;
+                resultCell.style.fontWeight = 'bold';
+                row.appendChild(resultCell);
+                historyBody.appendChild(row);
             }
         }
 
-        // Run the update initially
-        updatePeriodAndTimer();
-
-        // Update every second
-        setInterval(updatePeriodAndTimer, 1000);
+        updateResult();
     </script>
 </body>
+
 </html>
